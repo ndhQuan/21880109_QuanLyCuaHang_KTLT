@@ -1,0 +1,43 @@
+﻿@page
+@model _21880109.Pages.MH_ThemMatHangModel
+@using _21880109.Entities;
+@using _21880109.DAL;
+<form method="post">
+    <label for="MaMatHang">Nhap Ma Mat Hang:</label><br />
+    <input type="text" name="MaMatHang" value=""><br />
+    <label for="TenMatHang">Nhap Ten Mat Hang:</label><br />
+    <input type="text" name="TenMatHang" value=""><br />
+    <label for="ngaySX">Nhap Ngay SX:</label><br />
+    <input type="date" name="ngaySX" value=""><br />
+    <label for="handung">Nhap Han Su Dung:</label><br />
+    <input type="date" name="handung" value=""><br />
+    <label for="ctysx">Nhap Cong Ty San Xuat:</label><br />
+    <input type="text" name="ctysx" value=""><br />
+
+
+    <label for="loaihang">Nhap Loai Hang:</label><br />
+    <select name="loaihang" value="">
+        @{
+            List<LoaiHang> dslh = LuuTruLoaiHang.DocDanhSachLoaiHang();
+            foreach (LoaiHang lh in dslh)
+            {
+                <option value="@lh.TenLoaiHang">@lh.TenLoaiHang</option>
+            }
+        }
+    </select>
+    <br />
+
+    <label for="gia">Nhap Gia:</label><br />
+    <input type="text" name="gia" value=""><br /><br />
+
+
+    <input type="submit" value="Thêm">
+</form>
+@{
+    DateTime ngaymuon = Convert.ToDateTime("05/13/2022");
+    DateTime ngaytra = DateTime.Now;
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+
+}
+@Model.Chuoi

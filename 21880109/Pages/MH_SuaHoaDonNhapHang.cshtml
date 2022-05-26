@@ -1,0 +1,55 @@
+﻿@page
+@model _21880109.Pages.MH_SuaHoaDonNhapHangModel
+@using _21880109.Entities
+@using _21880109.DAL
+<form method="post">
+    <label for="maHoaDon">Mã hóa đơn:</label>
+    <input type="text" name="maHoaDon" value="@Model.Id" disabled />
+    <label for="ngayTao">Nhập ngày tạo hóa đơn:</label>
+    <input type="date" name="ngayTao" value="@Model.HoaDonNhap.NgayTaoHoaDon" />
+
+
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Mã Mặt Hàng + Tên Mặt Hàng</th>
+            <th>Số lượng</th>
+            <th>Đơn Giá</th>
+        </tr>
+        @{
+
+        for (int i = 1; i <= 5; i++)          
+        {
+        <tr id="chiTietHoaDon">
+            <td>@i</td>
+            <td>
+                <select name="MaMatHang@(i)" value="">
+                    @{
+                        <option value="" ></option>
+                        <option value="@Model.HoaDonNhap.ChiTiet[i-1].MaMatHang" selected>@Model.HoaDonNhap.ChiTiet[i - 1].MaMatHang @Model.HoaDonNhap.ChiTiet[i - 1].TenMatHang</option>
+                        <option value="" disabled>----------------------------------------------</option>
+                        List<MatHang> dsmh = LuuTruMatHang.DocDanhSachMatHang();
+                        foreach (MatHang mh in dsmh)
+                        {
+                            <option value="@mh.MaMH">@mh.MaMH: @mh.TenMH</option>
+                        }
+                    }
+                </select>
+            </td>
+            <td><input type="number" name="SoLuong@(i)" value="@Model.HoaDonNhap.ChiTiet[i-1].SoLuong"></td>
+            <td><input type="number" name="DonGia@(i)" value="@Model.HoaDonNhap.ChiTiet[i-1].DonGia"></td>
+            <!--<td><input type="number" name="ThanhTien"></td>-->
+        </tr>
+
+        }
+        }
+    </table>
+    <div style="text-align: center; margin-top:10px;">
+        <input type="submit" value="Sửa" />
+    </div>
+
+</form>
+
+@Model.Chuoi
+<br />
+

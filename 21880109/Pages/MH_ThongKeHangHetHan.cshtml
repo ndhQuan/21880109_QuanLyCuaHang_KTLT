@@ -1,0 +1,22 @@
+﻿@page
+@model _21880109.Pages.MH_ThongKeHangHetHanModel
+@using _21880109.Entities
+
+<table>
+    <tr>
+        <th>Mã Mặt Hàng</th>
+        <th>Tên Mặt Hàng</th>
+        <th>Ngày Hết Hạn</th>
+        <th>Số Lượng</th>
+    </tr>
+    @for(int i=0; i < Model.dsmhHetHan.Count; i++)
+     {
+          <tr>
+              <td>@Model.dsmhHetHan[i].MaMH</td>
+              <td>@Model.dsmhHetHan[i].TenMH</td>
+              <td>@Model.dsmhHetHan[i].HanDung</td>
+              <td>@Model.soLuongTonKho[i]</td>
+          
+          </tr>
+     }
+</table>

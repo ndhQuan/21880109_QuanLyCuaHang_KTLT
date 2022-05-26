@@ -1,0 +1,49 @@
+﻿@page
+@model _21880109.Pages.MH_DanhSachMatHangModel
+@using _21880109.Entities
+<div class="Them">
+    <a href="/MH_ThemMatHang">+ Thêm Mặt Hàng Mới</a>
+</div>
+
+<form method="post">
+    <label for="tukhoa">Nhập từ khóa: </label>
+    <input type="text" name="tukhoa" value="">
+    <select name="danhMucTimKiem">
+        <option value="">--Tìm kiếm theo--</option>
+        <option value="MaMatHang">Mã Mặt Hàng</option>
+        <option value="TenMatHang">Tên Mặt Hàng</option>
+        <option value="LoaiHang">Loại Hàng</option>
+        <option value="CtySX">Công ty sản xuất</option>
+    </select>
+
+    <input type="submit" value="Tìm kiếm">
+</form>
+
+<table>
+    <tr>
+        <th>Mã Mặt Hàng</th>
+        <th>Tên Mặt Hàng</th>
+        <th>Loại Hàng</th>
+        <th>Ngày Sản Xuất</th>
+        <th>Hạn Dùng</th>
+        <th>Công ty sản xuất</th>
+        <th>Giá</th>
+        <th></th>
+    </tr>
+    @foreach (MatHang sp in Model.dsMatHang)
+    {
+        <tr>
+            <td>@sp.MaMH</td>
+            <td>@sp.TenMH</td>
+            <td>@sp.LoaiHang</td>
+            <td>@sp.NgaySX</td>
+            <td>@sp.HanDung</td>
+            <td>@sp.CtySX</td>
+            <td>@sp.Gia</td>
+            <td>
+                <a href="/MH_XoaMatHang?id=@sp.MaMH">Xóa</a>
+                <a href="/MH_SuaMatHang?id=@sp.MaMH">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>

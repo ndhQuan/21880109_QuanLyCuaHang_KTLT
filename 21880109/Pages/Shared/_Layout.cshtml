@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 21880109</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style type="text/css">
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        div.Them a {
+            border: 1px solid #001dff;
+            color: black;
+            padding: 10px 10px;
+            border-radius: 5px;
+        }
+        div.Them a:hover{
+            text-decoration: none;
+            background-color: #3c4dcb;
+            color:antiquewhite;
+        }
+        div.Them{
+            margin: 20px 0;
+        }
+        #nav li{
+            border: 1px solid #b200ff;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        #nav a{color: black;}
+        #nav li:hover, #nav a:hover{
+            background-color: #b200ff;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">21880109</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="nav">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_DanhSachLoaiHang">Loại Hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_DanhSachMatHang">Mặt Hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_DanhSachHoaDonNhapHang">Hóa đơn nhập hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_DanhSachHoaDonBanHang">Hóa đơn bán hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_ThongKeHangTon">Thống Kê Hàng Tồn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MH_ThongKeHangHetHan">Thống Kê Hàng Hết Hạn</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - 21880109 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@page
+@model _21880109.Pages.MH_ThongKeHangTonModel
+@using _21880109.Entities
+
+<form method="post">
+    <select name="loaiHang">
+        <option value="">--Loại Hàng--</option>
+        @foreach (LoaiHang lh in Model.dslh)
+        {
+        <option value="@lh.TenLoaiHang">@lh.TenLoaiHang</option>
+        }
+    </select>
+    <input type="submit" value="Tìm kiếm"/>
+</form><br />
+<div>Loại Hàng: @Model.LoaiHang</div>
+<table>
+    <tr>
+        <th>Mã Mặt Hàng</th>
+        <th>Tên Mặt Hàng</th>
+        <th>Tổng Số Lượng Nhập</th>
+        <th>Tổng Số Lượng Bán</th>
+        <th>Số Lượng Tồn</th>
+    </tr>
+    @for (int i = 0; i < Model.dsHangTonTheoLoai.Count; i++)
+    {
+        <tr>
+            <td>@Model.dsHangTonTheoLoai[i].MaMH</td>
+            <td>@Model.dsHangTonTheoLoai[i].TenMH</td>
+            <td>@Model.soLuongNhap[i]</td>
+            <td>@Model.soLuongBan[i]</td>
+            <td>@Model.soLuongTonKho[i]</td>
+
+        </tr>
+    }
+    <tr>
+        <td colspan="4">Tổng Cộng</td>
+        <td>@Model.TongTonKho</td>
+
+    </tr>
+
+
+</table>
+
+
+<table>
+</table>

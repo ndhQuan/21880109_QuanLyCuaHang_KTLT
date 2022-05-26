@@ -1,0 +1,27 @@
+﻿@page
+@model _21880109.Pages.MH_XoaMatHangModel
+@using _21880109.Entities
+
+@{
+
+    if(Model.HoaDonChuaMatHang.Count != 0)
+    {
+        <div>Mặt Hàng bạn muốn xóa đang được chứa trong các hóa đơn:</div>
+        foreach (string MaHoaDon in Model.HoaDonChuaMatHang)
+        {
+            <div>@MaHoaDon</div>
+        }
+        <div>Xin thực hiện xóa mặt hàng trong các hóa đơn trước khi thực hiện xóa mặt hàng</div>
+    }
+    else
+    {
+        <form method="post">
+            <div>Bạn có muốn xóa sản phẩm @Model.MatHang.TenMH</div>
+            <input type="submit" value="Xóa">
+        </form>
+    }
+
+}
+
+
+@Model.Chuoi

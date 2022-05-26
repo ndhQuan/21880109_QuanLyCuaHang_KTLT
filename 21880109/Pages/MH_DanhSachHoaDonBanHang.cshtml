@@ -1,0 +1,44 @@
+﻿@page
+@model _21880109.Pages.MH_DanhSachHoaDonBanHangModel
+@using _21880109.Entities
+@{
+}
+<div class="Them">
+    <a href="/MH_TaoHoaDonBanHang">+ Tạo Hóa Đơn Bán Hàng Mới</a>
+</div>
+
+<form method="post">
+    <label for="tukhoa">Nhập từ khóa: </label>
+    <input type="text" name="tukhoa" value="">
+
+    <input type="submit" value="Tìm kiếm"><br />
+
+    <input type="radio" id="mahd" name="target" value="MaHoaDon" checked>
+    <label for="mahd" style="padding-right: 30px;">Tìm theo mã hóa đơn</label>
+    <input type="radio" id="ngaytao" name="target" value="NgayTao">
+    <label for="ngaytao">Tìm theo ngày tạo</label><br>
+</form>
+
+<table>
+    <tr>
+        <th>Mã Hóa Đơn</th>
+        <th>Ngày Tạo Hóa Đơn<br />(yyyy/mm/dd)</th>
+        <th>Chi Tiết Hóa Dơn</th>
+        <th></th>
+
+    </tr>
+    @foreach (HoaDon h in Model.dshdb)
+    {
+        <tr>
+            <td>@h.MaHoaDon</td>
+            <td>@h.NgayTaoHoaDon</td>
+            <td>
+                <a href="/MH_ChiTietHoaDonBanHang?id=@h.MaHoaDon">Xem Chi Tiết</a>
+            </td>
+            <td>
+                <a href="/MH_XoaHoaDonBanHang?id=@h.MaHoaDon">Xóa</a>
+                <a href="/MH_SuaHoaDonBanHang?id=@h.MaHoaDon">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>

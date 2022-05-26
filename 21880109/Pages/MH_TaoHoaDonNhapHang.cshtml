@@ -1,0 +1,53 @@
+﻿@page
+@model _21880109.Pages.MH_TaoHoaDonNhapHangModel
+@using _21880109.Entities
+@using _21880109.DAL
+<form method="post">
+    <label for="maHoaDon">Nhập mã hóa đơn:</label>
+    <input type="text" name="maHoaDon" value="" />
+    <label for="ngayTao">Nhập ngày tạo hóa đơn:</label>
+    <input type="date" name="ngayTao" value="" />
+
+
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Mã Mặt Hàng + Tên Mặt Hàng</th>
+            <th>Số lượng</th>
+            <th>Đơn Giá</th>
+        </tr>
+        @{
+
+            for (int i = 1; i <= 5; i++)          //Tạo một hóa đơn có 5 dòng
+            {
+                <tr id="chiTietHoaDon">
+                    <td>@i</td>
+                    <td>
+                        <select name="MaMatHang@(i)" value="">
+                            @{
+                                <option value=""></option>
+
+                                List<MatHang> dsmh = LuuTruMatHang.DocDanhSachMatHang();
+                                foreach (MatHang mh in dsmh)
+                                {
+                                    <option value="@mh.MaMH">@mh.MaMH: @mh.TenMH</option>
+                                }
+                            }
+                        </select>
+                    </td>
+                    <td><input type="number" name="SoLuong@(i)"></td>
+                    <td><input type="number" name="DonGia@(i)"></td>
+                    <!--<td><input type="number" name="ThanhTien"></td>-->
+                </tr>
+
+            }
+        }
+    </table>
+    <div style="text-align: center; margin-top:10px;">
+        <input type="submit" value="Tạo" />
+    </div>
+
+</form>
+
+@Model.Chuoi <br />
+@Model.error

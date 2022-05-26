@@ -1,0 +1,35 @@
+﻿@page
+@model _21880109.Pages.MH_ChiTietHoaDonNhapHangModel
+@using _21880109.Entities
+
+
+<div>Mã Hóa Đơn: @Model.Id</div>
+<div>Ngày tạo: @Model.HoaDonNhap.NgayTaoHoaDon</div>
+<br />
+
+<table>
+    <tr>
+        <th>STT</th>
+        <th>Mã Mặt Hàng</th>
+        <th>Tên Mặt Hàng</th>
+        <th>Số lượng</th>
+        <th>Đơn Giá</th>
+        <th>Thành Tiền</th>
+    </tr>
+    @{
+        int n = 1;
+        foreach (ChiTietHoaDon ct in Model.HoaDonNhap.ChiTiet)
+        {
+
+            <tr>
+                <td>@(n++)</td>
+                <td>@ct.MaMatHang</td>
+                <td>@ct.TenMatHang</td>
+                <td>@ct.SoLuong</td>
+                <td>@ct.DonGia</td>
+                <td>@(ct.SoLuong*ct.DonGia)</td>
+            </tr>
+
+        }
+    }
+</table>

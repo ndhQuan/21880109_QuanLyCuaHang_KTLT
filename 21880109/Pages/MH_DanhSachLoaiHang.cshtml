@@ -1,0 +1,39 @@
+﻿@page
+@model _21880109.Pages.MH_DanhSachLoaiHangModel
+@using _21880109.Entities
+@{
+}
+<div class="Them">
+    <a href="/MH_ThemLoaiHang">+ Thêm Loại Hàng Mới</a>
+</div>
+<form method="post">
+    <label for="tukhoa">Nhập từ khóa: </label>
+    <input type="text" name="tukhoa" value="">
+    <select name="danhMucTimKiem">
+        <option value="">--Tìm kiếm theo--</option>
+        <option value="MaLoaiHang">Mã Loại Hàng</option>
+        <option value="TenLoaiHang">Tên Loại Hàng</option>
+    </select>
+
+    <input type="submit" value="Tìm kiếm">
+</form>
+
+<table>
+    <tr>
+        <th>Mã Loại Hàng</th>
+        <th>Tên Loại Hàng</th>
+        <th></th>
+    </tr>
+    @foreach (LoaiHang lh in Model.dsLoaiHang)
+    {
+        <tr>
+            <td>@lh.MaLoaiHang</td>
+            <td>@lh.TenLoaiHang</td>
+            <td>
+                <a href="/MH_XoaLoaiHang?id=@lh.MaLoaiHang">Xóa</a>
+                <a href="/MH_SuaLoaiHang?id=@lh.MaLoaiHang">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>
+
