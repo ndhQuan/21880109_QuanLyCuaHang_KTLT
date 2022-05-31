@@ -13,6 +13,13 @@ namespace _21880109.DAL
         public static bool LuuMatHang(MatHang m)
         {
             List<MatHang> danhSachMatHang = DocDanhSachMatHang();
+            foreach(MatHang mh in danhSachMatHang)
+            {
+                if(mh.MaMH == m.MaMH)
+                {
+                    return false;
+                }
+            }
             danhSachMatHang.Add(m);
             LuuDanhSachMatHang(danhSachMatHang);
             return true;

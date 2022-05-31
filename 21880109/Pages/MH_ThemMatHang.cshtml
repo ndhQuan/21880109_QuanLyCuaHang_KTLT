@@ -33,11 +33,4 @@
 
     <input type="submit" value="Thêm">
 </form>
-@{
-    DateTime ngaymuon = Convert.ToDateTime("05/13/2022");
-    DateTime ngaytra = DateTime.Now;
-    TimeSpan Time = ngaytra - ngaymuon;
-    int TongSoNgay = Time.Days;
-
-}
 @Model.Chuoi

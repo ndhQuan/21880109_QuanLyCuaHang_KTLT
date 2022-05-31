@@ -13,6 +13,13 @@ namespace _21880109.DAL
         public static bool LuuLoaiHang(LoaiHang lh)
         {
             List<LoaiHang> danhSachLoaiHang = DocDanhSachLoaiHang();
+            foreach(LoaiHang loaiHang in danhSachLoaiHang)
+            {
+                if(loaiHang.MaLoaiHang == lh.MaLoaiHang)
+                {
+                    return false;
+                }
+            }
             danhSachLoaiHang.Add(lh);
             LuuDanhSachLoaiHang(danhSachLoaiHang);
             return true;

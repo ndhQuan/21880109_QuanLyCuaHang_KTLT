@@ -21,8 +21,7 @@ namespace _21880109.Services
             {
                 return false;
             }
-            LuuTruMatHang.LuuMatHang(m);
-            return true;
+            return LuuTruMatHang.LuuMatHang(m);
         }
         public static List<MatHang> TimKiemMatHang(string tukhoa, string theloai)
         {

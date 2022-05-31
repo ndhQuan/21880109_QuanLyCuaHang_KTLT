@@ -17,8 +17,7 @@ namespace _21880109.Services
             {
                 return false;
             }
-            LuuTruLoaiHang.LuuLoaiHang(lh);
-            return true;
+            return LuuTruLoaiHang.LuuLoaiHang(lh);
         }
         public static List<LoaiHang> TimKiemLoaiHang(string tukhoa, string theloai)
         {
